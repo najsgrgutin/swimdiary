@@ -1,0 +1,2 @@
+# swimdiary
+Diary for swimmers
