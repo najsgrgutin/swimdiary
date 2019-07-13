@@ -1,4 +1,4 @@
-package diary.project.SwimmingDiary;
+package diary.project.ASwimmingDiary;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
