@@ -19,13 +19,21 @@ public class Training {
     @Column(name = "length")
     private Double length;
 
+    @Column(name = "type_id")
+    private Integer typeId;
+
+    @Column(name = "note_id")
+    private Integer noteId;
+
     public Training(){
 
     }
 
-    public Training(String date, Double length) {
+    public Training(String date, Double length, Integer typeId, Integer noteId) {
         this.date = date;
         this.length = length;
+        this.typeId = typeId;
+        this.noteId = noteId;
     }
 
     public Integer getId() {
@@ -52,6 +60,22 @@ public class Training {
         this.length = length;
     }
 
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
+    public Integer getNoteId() {
+        return noteId;
+    }
+
+    public void setNoteId(Integer noteId) {
+        this.noteId = noteId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,12 +83,14 @@ public class Training {
         Training training = (Training) o;
         return Objects.equals(id, training.id) &&
                 Objects.equals(date, training.date) &&
-                Objects.equals(length, training.length);
+                Objects.equals(length, training.length) &&
+                Objects.equals(typeId, training.typeId) &&
+                Objects.equals(noteId, training.noteId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, length);
+        return Objects.hash(id, date, length, typeId, noteId);
     }
 
     @Override
@@ -73,6 +99,8 @@ public class Training {
                 "id=" + id +
                 ", date='" + date + '\'' +
                 ", length=" + length +
+                ", typeId=" + typeId +
+                ", noteId=" + noteId +
                 '}';
     }
 }
