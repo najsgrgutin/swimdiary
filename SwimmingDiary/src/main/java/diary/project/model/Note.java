@@ -2,6 +2,8 @@ package diary.project.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.util.Objects;
 
 @Entity
@@ -13,6 +15,7 @@ public class Note {
     @Column(name = "id")
     private Integer id;
 
+    @NotNull
     @Column(name = "note_text")
     private String text;
 

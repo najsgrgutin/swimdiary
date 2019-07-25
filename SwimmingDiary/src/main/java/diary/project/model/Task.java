@@ -1,6 +1,8 @@
 package diary.project.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.util.Objects;
 
 @Entity
@@ -18,6 +20,7 @@ public class Task {
     @Column(name = "note_id")
     private Integer noteId;
 
+    @NotNull
     @Column(name = "description")
     private String description;
 

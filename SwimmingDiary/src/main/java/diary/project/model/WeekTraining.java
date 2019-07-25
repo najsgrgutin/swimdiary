@@ -1,8 +1,5 @@
 package diary.project.model;
 
-
-import org.omg.CORBA.INTERNAL;
-
 import javax.persistence.*;
 import java.util.Objects;
 

@@ -17,7 +17,7 @@ public class TrainingController {
 
     @GetMapping("/training")
     public List<Training> getTrainings(){
-        return trainingService.getAll();
+        return this.trainingService.getAll();
     }
 
     @PostMapping("/training")
