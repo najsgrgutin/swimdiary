@@ -13,15 +13,15 @@ public class Period {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "type_id")
-    private Integer typeId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Type type;
 
     public Period(){
 
     }
 
-    public Period(Integer typeId) {
-        this.typeId = typeId;
+    public Period(Type type) {
+        this.type = type;
     }
 
     public Integer getId() {
@@ -32,33 +32,12 @@ public class Period {
         this.id = id;
     }
 
-    public Integer getTypeId() {
-        return typeId;
+    public Type getType() {
+        return type;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setTypeId(Type type) {
+        this.type = type;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Period period = (Period) o;
-        return Objects.equals(id, period.id) &&
-                Objects.equals(typeId, period.typeId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, typeId);
-    }
-
-    @Override
-    public String toString() {
-        return "Period{" +
-                "id=" + id +
-                ", typeId=" + typeId +
-                '}';
-    }
 }

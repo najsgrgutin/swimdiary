@@ -1,10 +1,20 @@
 package diary.project.model;
 
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.sql.Date;
+import java.util.List;
 
-import java.util.Objects;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "training")
@@ -17,94 +27,72 @@ public class Training {
 
     @NotNull
     @Column(name = "date")
-    private String date;
+    private Date date;
 
     @NotNull
     @Column(name = "length")
     private Double length;
 
-    @Column(name = "type_id")
-    private Integer typeId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Type type;
 
-    @Column(name = "note_id")
-    private Integer noteId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Note note;
+    
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Week> weeks;
 
     public Training(){
 
     }
 
-    public Training(String date, Double length, Integer typeId, Integer noteId) {
-        this.date = date;
-        this.length = length;
-        this.typeId = typeId;
-        this.noteId = noteId;
-    }
+	public Training(@NotNull Date date, @NotNull Double length, Type type, Note note, List<Week> weeks) {
+		super();
+		this.date = date;
+		this.length = length;
+		this.type = type;
+		this.note = note;
+		this.weeks = weeks;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public Date getDate() {
+		return date;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public String getDate() {
-        return date;
-    }
+	public Double getLength() {
+		return length;
+	}
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+	public void setLength(Double length) {
+		this.length = length;
+	}
 
-    public Double getLength() {
-        return length;
-    }
+	public Type getType() {
+		return type;
+	}
 
-    public void setLength(Double length) {
-        this.length = length;
-    }
+	public void setType(Type type) {
+		this.type = type;
+	}
 
-    public Integer getTypeId() {
-        return typeId;
-    }
+	public Note getNote() {
+		return note;
+	}
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
-    }
+	public void setNote(Note note) {
+		this.note = note;
+	}
 
-    public Integer getNoteId() {
-        return noteId;
-    }
+	public List<Week> getWeeks() {
+		return weeks;
+	}
 
-    public void setNoteId(Integer noteId) {
-        this.noteId = noteId;
-    }
+	public void setWeek(List<Week> weeks) {
+		this.weeks = weeks;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Training training = (Training) o;
-        return Objects.equals(id, training.id) &&
-                Objects.equals(date, training.date) &&
-                Objects.equals(length, training.length) &&
-                Objects.equals(typeId, training.typeId) &&
-                Objects.equals(noteId, training.noteId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, date, length, typeId, noteId);
-    }
-
-    @Override
-    public String toString() {
-        return "Training{" +
-                "id=" + id +
-                ", date='" + date + '\'' +
-                ", length=" + length +
-                ", typeId=" + typeId +
-                ", noteId=" + noteId +
-                '}';
-    }
 }
