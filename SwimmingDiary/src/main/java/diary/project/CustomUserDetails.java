@@ -1,10 +1,14 @@
 package diary.project;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import diary.project.model.Role;
 import diary.project.model.User;
 
 public class CustomUserDetails implements UserDetails {
@@ -16,48 +20,56 @@ public class CustomUserDetails implements UserDetails {
 	public CustomUserDetails(User user) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
+		
+		List<GrantedAuthority> auths = new ArrayList<>();
+		
+		for(Role role : user.getRoles()) {
+			auths.add(new SimpleGrantedAuthority(role.getName().toUpperCase()));
+		}
+
+		this.authorities = auths;
 	}
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return password;
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return username;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
