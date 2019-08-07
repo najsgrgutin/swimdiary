@@ -22,7 +22,7 @@ public class TrainingController {
 
     @PostMapping("/training")
     public Training addTraining(@RequestBody Training training){
-        System.out.println(training);
+        System.out.println(training.toString());
         return this.trainingService.addTraining(training);
     }
 

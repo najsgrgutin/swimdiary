@@ -11,7 +11,7 @@ import java.util.List;
 public class TrainingServiceImpl implements TrainingService {
 
     @Autowired
-    TrainingRepository trainRepo;
+    private TrainingRepository trainRepo;
 
     @Override
     public List<Training> getAll() {
@@ -25,10 +25,10 @@ public class TrainingServiceImpl implements TrainingService {
 
     @Override
     public Training change(Integer id, Training tr) {
-        Training curTr = this.trainRepo.getOne(id);
-        curTr.setDate(tr.getDate());
-        curTr.setLength(tr.getLength());
-        return this.trainRepo.save(curTr);
+        Training old = this.trainRepo.getOne(id);
+        old.setDate(tr.getDate());
+        old.setLength(tr.getLength());
+        return old; 
     }
 
     @Override

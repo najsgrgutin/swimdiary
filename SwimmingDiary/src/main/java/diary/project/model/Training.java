@@ -27,7 +27,7 @@ public class Training {
 
     @NotNull
     @Column(name = "date")
-    private Date date;
+    private String date;
 
     @NotNull
     @Column(name = "length")
@@ -46,7 +46,7 @@ public class Training {
 
     }
 
-	public Training(@NotNull Date date, @NotNull Double length, Type type, Note note, List<Week> weeks) {
+	public Training(@NotNull String date, @NotNull Double length, Type type, Note note, List<Week> weeks) {
 		super();
 		this.date = date;
 		this.length = length;
@@ -55,11 +55,11 @@ public class Training {
 		this.weeks = weeks;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
