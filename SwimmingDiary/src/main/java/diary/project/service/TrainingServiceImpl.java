@@ -20,7 +20,6 @@ public class TrainingServiceImpl implements TrainingService {
 
     @Override
     public List<Training> getAll() {
-    	logger.info("Getting all trainings");
         return this.trainRepo.findAll();
     }
 
@@ -36,6 +35,9 @@ public class TrainingServiceImpl implements TrainingService {
         logger.info("New training " + tr.toString());
         old.setDate(tr.getDate());
         old.setLength(tr.getLength());
+        old.setNote(tr.getNote());
+        old.setType(tr.getType());
+        old.setWeek(tr.getWeeks());
         return this.trainRepo.saveAndFlush(old);
     }
 

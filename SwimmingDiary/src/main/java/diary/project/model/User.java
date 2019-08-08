@@ -31,7 +31,7 @@ public class User {
 	private String password;
 	
 	@NotNull
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<Role> roles;
 	
 	public User() {

@@ -2,6 +2,8 @@ package diary.project.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +28,12 @@ public class TrainingController {
 
     @GetMapping("/training")
     public List<Training> getTrainings(){
+    	log.info("Getting all trainings");
         return this.trainingService.getAll();
     }
 
     @PostMapping("/training")
-    public Training addTraining(@RequestBody Training training){
+    public Training addTraining(@Valid @RequestBody Training training){
         log.info("New training " + training.toString());
         return this.trainingService.addTraining(training);
     }

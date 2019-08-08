@@ -31,6 +31,10 @@ public class TaskServiceImpl implements TaskService {
 		old.setNote(task.getNote());
 		old.setTraining(task.getTrainings());
 		old.setType(task.getType());
+		old.setFins(task.isFins());
+		old.setPaddles(task.isPaddles());
+		old.setPlane(task.isPlane());
+		old.setSnorkel(task.isSnorkel());
 		return this.taskRepository.saveAndFlush(old);
 	}
 
