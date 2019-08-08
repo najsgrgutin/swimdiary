@@ -32,7 +32,7 @@ public class WeekServiceImpl implements WeekService {
 		old.setOrdinal(week.getOrdinal());
 		old.setPeriod(week.getPeriod());
 		old.setType(week.getType());
-		return old;
+		return this.weekRepository.saveAndFlush(old);
 	}
 
 	@Override

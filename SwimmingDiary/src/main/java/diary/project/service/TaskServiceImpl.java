@@ -31,7 +31,7 @@ public class TaskServiceImpl implements TaskService {
 		old.setNote(task.getNote());
 		old.setTraining(task.getTrainings());
 		old.setType(task.getType());
-		return old;
+		return this.taskRepository.saveAndFlush(old);
 	}
 
 	@Override

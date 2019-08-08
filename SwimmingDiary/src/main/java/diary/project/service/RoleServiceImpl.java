@@ -28,7 +28,7 @@ public class RoleServiceImpl implements RoleService {
 	public Role changeRole(Integer id, Role role) {
 		Role old = this.roleRepository.getOne(id);
 		old.setName(role.getName());
-		return old;
+		return this.roleRepository.saveAndFlush(old);
 	}
 
 	@Override

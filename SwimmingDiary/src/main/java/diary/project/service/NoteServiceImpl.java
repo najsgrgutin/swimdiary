@@ -21,15 +21,15 @@ public class NoteServiceImpl implements NoteService {
 
 	@Override
 	public Note addNote(Note note) {
-		this.noteRepository.saveAndFlush(note);
-		return note;
+		return this.noteRepository.saveAndFlush(note);
+		
 	}
 
 	@Override
 	public Note changeNote(Integer id, Note note) {
 		Note old = this.noteRepository.getOne(id);
 		old.setText(note.getText());
-		return old;
+		return this.noteRepository.saveAndFlush(old);
 	}
 
 	@Override

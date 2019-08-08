@@ -1,20 +1,26 @@
 package diary.project.service;
 
-import diary.project.model.Training;
-import diary.project.repository.TrainingRepository;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import diary.project.model.Training;
+import diary.project.repository.TrainingRepository;
 
 @Service
 public class TrainingServiceImpl implements TrainingService {
 
+	private Logger logger = LoggerFactory.getLogger(TrainingServiceImpl.class);
+	
     @Autowired
     private TrainingRepository trainRepo;
 
     @Override
     public List<Training> getAll() {
+    	logger.info("Getting all trainings");
         return this.trainRepo.findAll();
     }
 
@@ -26,9 +32,11 @@ public class TrainingServiceImpl implements TrainingService {
     @Override
     public Training change(Integer id, Training tr) {
         Training old = this.trainRepo.getOne(id);
+        logger.info("Old training " + old.toString());
+        logger.info("New training " + tr.toString());
         old.setDate(tr.getDate());
         old.setLength(tr.getLength());
-        return old; 
+        return this.trainRepo.saveAndFlush(old);
     }
 
     @Override

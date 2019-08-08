@@ -28,7 +28,7 @@ public class TypeServiceImpl implements TypeService {
 	public Type changeType(Integer id, Type type) {
 		Type old = this.typeRepository.getOne(id);
 		old.setDescription(type.getDescription());
-		return old;
+		return this.typeRepository.saveAndFlush(old);
 	}
 
 	@Override

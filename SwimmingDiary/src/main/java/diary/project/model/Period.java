@@ -1,8 +1,6 @@
 package diary.project.model;
 
-
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "period")

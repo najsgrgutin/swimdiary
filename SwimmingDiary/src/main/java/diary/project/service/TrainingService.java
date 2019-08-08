@@ -1,7 +1,6 @@
 package diary.project.service;
 
 import diary.project.model.Training;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

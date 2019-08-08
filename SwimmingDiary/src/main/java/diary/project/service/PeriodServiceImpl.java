@@ -28,7 +28,7 @@ public class PeriodServiceImpl implements PeriodService {
 	public Period changePeriod(Integer id, Period period) {
 		Period old = this.periodRepository.getOne(id);
 		old.setTypeId(period.getType());
-		return old;
+		return this.periodRepository.saveAndFlush(old);
 	}
 
 	@Override
