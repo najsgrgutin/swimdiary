@@ -5,28 +5,57 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import diary.project.config.JwtTokenUtil;
 import diary.project.model.User;
-import diary.project.service.UserServiceImpl;
+import diary.project.service.JwtUserDetailsService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
-	
+
 	private Logger log = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	
 	@Autowired
-	private UserServiceImpl userService;
-	
-	@PostMapping("/registration")
+	private JwtTokenUtil jwtTokenUtil;
+
+	@Autowired
+	private JwtUserDetailsService userDetailsService;
+
+	@PostMapping("/register")
 	public User register(@Valid @RequestBody User user) {
 		log.info("Trying to register new user.");
-		return user;
+		return this.userDetailsService.save(user);
 	}
-	
+
+	@PostMapping("/authenticate")
+	public String createAuthenticationToken(@RequestBody User user) throws Exception {
+		authenticate(user.getUsername(), user.getPassword());
+		final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+		final String token = jwtTokenUtil.generateToken(userDetails);
+		return token;
+	}
+
+	private void authenticate(String username, String password) throws Exception {
+		try {
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+		} catch (DisabledException e) {
+			throw new Exception("USER_DISABLED", e);
+		} catch (BadCredentialsException e) {
+			throw new Exception("INVALID_CREDENTIALS", e);
+		}
+	}
 
 }

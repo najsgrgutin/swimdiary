@@ -11,10 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class User {
 
 	@Id
@@ -30,7 +31,6 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	@NotNull
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	private List<Role> roles;
 	
