@@ -40,4 +40,9 @@ public class Note {
         this.text = text;
     }
 
+	@Override
+	public String toString() {
+		return "Note [id=" + id + ", text=" + text + "]";
+	}
+
 }

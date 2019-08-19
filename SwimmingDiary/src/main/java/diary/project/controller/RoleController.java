@@ -26,8 +26,9 @@ public class RoleController {
 	
 	@GetMapping("/role")
 	public List<Role> roles(){
-		log.info("Getting all roles");
-		return this.roleService.getRoles();
+		List<Role> roles = this.roleService.getRoles();
+		log.info("Getting all roles " + roles);
+		return roles;
 	}
 	
 	@PostMapping("/role")

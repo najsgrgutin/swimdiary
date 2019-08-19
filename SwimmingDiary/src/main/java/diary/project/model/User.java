@@ -1,7 +1,5 @@
 package diary.project.model;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -31,18 +29,18 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-	private List<Role> roles;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	private Role role;
 	
 	public User() {
 		
 	}
 
-	public User(String username, String password, List<Role> roles) {
+	public User(String username, String password, Role role) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.roles = roles;
+		this.role = role;
 	}
 
 	public String getUsername() {
@@ -61,12 +59,17 @@ public class User {
 		this.password = password;
 	}
 	
-	public List<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
 	}
 	
 }

@@ -128,5 +128,12 @@ public class Task {
 	public void setPaddles(boolean paddles) {
 		this.paddles = paddles;
 	}
+
+	@Override
+	public String toString() {
+		return "Task [id=" + id + ", type=" + type + ", note=" + note + ", trainings=" + trainings + ", description="
+				+ description + ", fins=" + fins + ", snorkel=" + snorkel + ", plane=" + plane + ", paddles=" + paddles
+				+ "]";
+	}
     
 }

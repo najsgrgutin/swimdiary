@@ -40,4 +40,9 @@ public class Type {
         this.description = description;
     }
 
+	@Override
+	public String toString() {
+		return "Type [id=" + id + ", description=" + description + "]";
+	}
+
 }

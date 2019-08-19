@@ -26,8 +26,9 @@ public class TaskController {
 	
 	@GetMapping("/task")
 	public List<Task> tasks(){
-		log.info("Getting all tasks");
-		return this.taskService.getTasks();
+		List<Task> tasks = this.taskService.getTasks();
+		log.info("Getting all tasks " + tasks);
+		return tasks;
 	}
 	
 	@PostMapping("/task")
