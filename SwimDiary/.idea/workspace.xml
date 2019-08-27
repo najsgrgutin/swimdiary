@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc7aced6-b145-4328-959f-2b9cd2e7a9c6" name="Default Changelist" comment="" />
+    <list default="true" id="bc7aced6-b145-4328-959f-2b9cd2e7a9c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2a102855-0694-4b28-b4ab-419891c283d8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2a102855-0694-4b28-b4ab-419891c283d8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwimDiary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SwimDiary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/migrations/0002_auto_20190820_0913.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/migrations/0003_auto_20190820_1242.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/migrations/0004_auto_20190826_1026.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/migrations/0005_auto_20190826_1028.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/swimdiary/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/swimdiary/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/swimdiary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swimdiary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/swimdiary/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +64,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1PeWsVQ1TPmTlwjb7dsMlqZcRLo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite&#10;postgresql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SwimDiary/settings.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -82,9 +103,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="SwimDiary.settings" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/../virtualenvs/swimdiary/bin/python3" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
@@ -106,12 +127,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3d36a153" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3298cdde" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3d36a153" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4bd15b01" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3298cdde" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@24ff4481" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -130,10 +151,22 @@
       <option name="presentableId" value="Default" />
       <updated>1566253738969</updated>
       <workItem from="1566253742474" duration="15710000" />
+      <workItem from="1566826242177" duration="5682000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

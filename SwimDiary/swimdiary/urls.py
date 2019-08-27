@@ -2,6 +2,8 @@ from django.urls import path
 from swimdiary import views
 
 urlpatterns = [
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>', views.UserDetail.as_view()),
     path('notes/', views.NoteList.as_view()),
     path('notes/<int:pk>/', views.NoteDetail.as_view()),
     path('types/', views.TypeList.as_view()),
